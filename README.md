@@ -1,3 +1,3 @@
-#An Django & React Projcet
+# An Django & React Projcet
 
 Developing...
