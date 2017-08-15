@@ -10,7 +10,7 @@ class Question(models.Model):
   order_id = models.IntegerField()
   question_type = models.IntegerField()
   addtion = models.CharField(max_length=50)
-  q_id = models.IntegerField()
+  q_id = models.CharField(max_length=50)
   rev = models.IntegerField()
   short = models.CharField(max_length=50)
   def __str__(self):
