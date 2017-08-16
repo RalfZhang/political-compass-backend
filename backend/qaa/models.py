@@ -14,7 +14,10 @@ class Question(models.Model):
   rev = models.IntegerField()
   short = models.CharField(max_length=50)
   def __str__(self):
-    return self.short
+    if self.short:
+      return self.short
+    else: 
+      return self.content
 
 class Answer(models.Model):
   time = models.DateTimeField()
