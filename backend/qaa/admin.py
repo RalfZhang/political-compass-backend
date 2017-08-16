@@ -1,9 +1,10 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import Question
+from .models import Question, Answer
 
 class QuestionAdmin(admin.ModelAdmin):
   list_display = ('q_id', 'short', 'content')
 
 admin.site.register(Question, QuestionAdmin)
+admin.site.register(Answer)
