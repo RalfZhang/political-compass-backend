@@ -59,11 +59,22 @@ POST
 ### 统计 stats
 
 1. 获取单个问题回答的分布  
-/stats/quetion_distribution?id=''
+/stats/question_distribution?id=''
+问题选项数量，比例，均分，和方差
 
+2. 获取总体分布  
+/stats/compass_distribution?type=1
 
+3. 以一个问题选项分类三个坐标平均值  
+/stats/compass_distribution_by_question
+
+4. 以一个问题选项分类所有问题回答均值  
+/stats/question_distribution_by_question 
 
 ### 分析 analyse
 
-1. 获取问题相关性
-/analyse/dependent
+1. 获取两个问题相关性
+/analyse/dependent?ids=[1,2]
+
+2. 获取坐标相关性
+(?)
