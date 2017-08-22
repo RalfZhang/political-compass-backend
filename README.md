@@ -49,9 +49,21 @@ GET
     "short": "集体利益优先"
 }
 ```
+
 ### 回答 answer
-1. 获取所有回答  
-/answers/
-GET
-```json
-```
+
+1. 添加回答  
+/answers/  
+POST
+
+### 统计 stats
+
+1. 获取单个问题回答的分布  
+/stats/quetion_distribution?id=''
+
+
+
+### 分析 analyse
+
+1. 获取问题相关性
+/analyse/dependent
