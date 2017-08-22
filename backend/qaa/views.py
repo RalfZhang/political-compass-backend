@@ -9,6 +9,7 @@ from .serializers import QuestionSerializer, AnswerSerializer
 class QuestionViewSet(viewsets.ModelViewSet):
   queryset = Question.objects.all().order_by('order_id')
   serializer_class = QuestionSerializer
+  http_method_names = ['get', 'head']
 
 class AnswerViewSet(viewsets.ModelViewSet):
   queryset = Answer.objects.all().order_by('id')
