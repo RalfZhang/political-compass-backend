@@ -7,6 +7,7 @@ from qaa import views
 
 router = routers.DefaultRouter()
 router.register(r'questions', views.QuestionViewSet)
+router.register(r'answers', views.AnswerViewSet)
 
 urlpatterns = [
     # Examples:
