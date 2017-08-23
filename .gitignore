@@ -1,3 +1,4 @@
 .vscode
 *.pyc
 backend/backend/settings.py
+backend/qaa/migrations/*
