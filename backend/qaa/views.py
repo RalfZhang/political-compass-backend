@@ -14,6 +14,7 @@ class QuestionViewSet(viewsets.ModelViewSet):
 class AnswerViewSet(viewsets.ModelViewSet):
   queryset = Answer.objects.all().order_by('id')
   serializer_class = AnswerSerializer
+  http_method_names = ['post']
 
 def index(request):
     return HttpResponse("Hello, world. You're at the polls index.")
