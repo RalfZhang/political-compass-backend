@@ -27,3 +27,11 @@ def question(request, question_id):
   id = int(question_id)
   question = Question.objects.get(id=id)
   return HttpResponse(question.__str__())
+
+def statsQuestionDistribution(request):
+  id=int(123)
+  if id:
+    question = Question.objects.get(id=id)
+    q_id = question.q_id
+    //todo
+  return
