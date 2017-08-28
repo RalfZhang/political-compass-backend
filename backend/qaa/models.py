@@ -19,6 +19,12 @@ class Question(models.Model):
     else: 
       return self.content
 
+class Choice(models.Model):
+  content = models.CharField(max_length=255)
+  question_id = models.ForeignKey(Question)
+  value = models.IntegerField()
+  order_id = models.IntegerField()
+
 class Answer(models.Model):
   time = models.DateTimeField()
   add = models.CharField(max_length=50, null=True, blank=True)
