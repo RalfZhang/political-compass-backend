@@ -2,14 +2,18 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from rest_framework import viewsets
 
-from .models import Question, Answer
-from .serializers import QuestionSerializer, AnswerSerializer
+from .models import Question, Choice, Answer
+from .serializers import QuestionSerializer, AnswerSerializer, ChoiceSerializer
 
 # Create your views here.
 class QuestionViewSet(viewsets.ModelViewSet):
   queryset = Question.objects.all().order_by('order_id')
   serializer_class = QuestionSerializer
   http_method_names = ['get', 'head']
+
+class ChoiceViewSet(viewsets.ModelViewSet): 
+  queryset = Choice.objects.all().order_by('order_id')
+  serializer_class = ChoiceSerializer
 
 class AnswerViewSet(viewsets.ModelViewSet):
   queryset = Answer.objects.all().order_by('id')
