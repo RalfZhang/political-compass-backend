@@ -14,6 +14,7 @@ class QuestionViewSet(viewsets.ModelViewSet):
 class ChoiceViewSet(viewsets.ModelViewSet): 
   queryset = Choice.objects.all().order_by('order_id')
   serializer_class = ChoiceSerializer
+  http_method_names = ['get', 'head']
 
 class AnswerViewSet(viewsets.ModelViewSet):
   queryset = Answer.objects.all().order_by('id')
