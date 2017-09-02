@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from rest_framework import viewsets
 
-from .models import Question, Choice, Answer
+from .models import Question, Answer, Choice
 from .serializers import QuestionSerializer, AnswerSerializer, ChoiceSerializer
 
 # Create your views here.
@@ -38,5 +38,5 @@ def statsQuestionDistribution(request):
   if id:
     question = Question.objects.get(id=id)
     q_id = question.q_id
-    //todo
+    # //todo
   return
