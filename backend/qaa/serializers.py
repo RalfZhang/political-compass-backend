@@ -2,9 +2,10 @@ from .models import Question, Answer, Choice
 from rest_framework import serializers
 
 class QuestionSerializer(serializers.HyperlinkedModelSerializer):
+  choice = ChoiceSerializer()
   class Meta:
     model = Question
-    fields = ('id', 'content', 'order_id', 'question_type', 'q_id', 'rev', 'short')
+    fields = ('id', 'content', 'order_id', 'question_type', 'q_id', 'rev', 'short', 'choice')
 
 class ChoiceSerializer(serializers.HyperlinkedModelSerializer):
   class Meta:
