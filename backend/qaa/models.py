@@ -5,6 +5,12 @@ import datetime
 from django.db import models
 from django.utils import timezone
 
+class Choice(models.Model):
+  content = models.CharField(max_length=255)
+  # question_id = models.ForeignKey(Question)
+  value = models.IntegerField()
+  order_id = models.IntegerField()
+
 class Question(models.Model):
   content = models.CharField(max_length=255)
   order_id = models.IntegerField()
@@ -13,17 +19,12 @@ class Question(models.Model):
   q_id = models.CharField(max_length=50)
   rev = models.IntegerField()
   short = models.CharField(max_length=50)
+  choice = models.ForeignKey(Choice)
   def __str__(self):
     if self.short:
       return self.short
     else: 
       return self.content
-
-class Choice(models.Model):
-  content = models.CharField(max_length=255)
-  question_id = models.ForeignKey(Question)
-  value = models.IntegerField()
-  order_id = models.IntegerField()
 
 class Answer(models.Model):
   time = models.DateTimeField()
