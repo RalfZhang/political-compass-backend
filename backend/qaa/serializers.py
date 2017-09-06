@@ -10,7 +10,7 @@ class QuestionSerializer(serializers.HyperlinkedModelSerializer):
 class ChoiceSerializer(serializers.HyperlinkedModelSerializer):
   class Meta:
     model = Choice
-    fields = ('content', 'question_id', 'value', 'order_id')
+    fields = ('content', 'value', 'order_id')
 
 class AnswerSerializer(serializers.HyperlinkedModelSerializer):
   class Meta: 
