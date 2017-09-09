@@ -9,6 +9,7 @@ class Choice(models.Model):
   content = models.CharField(max_length=255)
   # question_id = models.ForeignKey(Question)
   value = models.IntegerField()
+  group_id = models.IntegerField()
   order_id = models.IntegerField()
 
 class Question(models.Model):
@@ -19,7 +20,7 @@ class Question(models.Model):
   q_id = models.CharField(max_length=50)
   rev = models.IntegerField()
   short = models.CharField(max_length=50)
-  choice = models.ForeignKey(Choice)
+  choice_group = models.IntegerField(null=True, blank=True)
   def __str__(self):
     if self.short:
       return self.short
