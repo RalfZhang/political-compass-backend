@@ -99,6 +99,29 @@ class QuestionAdmin(admin.ModelAdmin):
 admin.site.register(Question, QuestionAdmin) # 注册
 ```
 
+URL 与视图
+qaa/views.py
+```py
+from django.http import HttpResponse
+from .models import Question
+def questions(request):
+  questions = Question.objects.all()
+  output = ', '.join(p.content for p in questions)
+  return HttpResponse(output)
+```
+qaa/urls.py
+```py
+from django.conf.urls import url
+from . import views
+urlpatterns = [
+  url(r'^questions$', views.questions),
+]
+```
+mysite/urls.py
+```py
+    url(r'^qaa/', include('qaa.urls')),
+```
+
 
 
 http://python.usyiyi.cn/translate/django_182/intro/tutorial01.html
