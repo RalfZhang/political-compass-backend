@@ -11,6 +11,13 @@ class Choice(models.Model):
   value = models.IntegerField()
   group_id = models.IntegerField()
   order_id = models.IntegerField()
+  def toDict(self):
+    return {
+      content: self.content,
+      value: self.value,
+      group_id: self.group_id,
+      order_id: self.order_id
+    }
 
 class Question(models.Model):
   content = models.CharField(max_length=255)
