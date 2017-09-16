@@ -35,14 +35,14 @@ class Question(models.Model):
       return self.content
   def toDict(self):
     return {
-      content = self.content,
-      order_id = self.order_id,
-      question_type = self.question_type,
-      addtion = self.addtion,
-      q_id = self.q_id,
-      rev = self.rev,
-      short = self.short,
-      choice_group = ''
+      content: self.content,
+      order_id: self.order_id,
+      question_type: self.question_type,
+      addtion: self.addtion,
+      q_id: self.q_id,
+      rev: self.rev,
+      short: self.short,
+      choice_group: ''
     }
 
 class Answer(models.Model):
