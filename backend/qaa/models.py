@@ -34,6 +34,7 @@ class Question(models.Model):
     else: 
       return self.content
   def toDict(self):
+    choices = Choice.objects.filter(id = self.choice_group).orderBy(order_id)
     return {
       content: self.content,
       order_id: self.order_id,
@@ -42,7 +43,7 @@ class Question(models.Model):
       q_id: self.q_id,
       rev: self.rev,
       short: self.short,
-      choice_group: ''
+      choice_group: choices
     }
 
 class Answer(models.Model):
