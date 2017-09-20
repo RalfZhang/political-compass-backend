@@ -127,3 +127,5 @@ mysite/urls.py
 http://python.usyiyi.cn/translate/django_182/intro/tutorial01.html
 
 http://blog.csdn.net/SVALBARDKSY/article/details/50548073
+
+https://eliyar.biz/django_api_design/
