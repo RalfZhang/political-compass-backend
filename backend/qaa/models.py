@@ -35,6 +35,9 @@ class Question(models.Model):
       return self.content
   def toDict(self):
     choices = Choice.objects.filter(id = self.choice_group).orderBy(order_id)
+    choicesList = []
+    for item in choices:
+      choicesList.append(item.toDict())
     return {
       content: self.content,
       order_id: self.order_id,
@@ -43,7 +46,7 @@ class Question(models.Model):
       q_id: self.q_id,
       rev: self.rev,
       short: self.short,
-      choice_group: choices
+      choice_group: choicesList
     }
 
 class Answer(models.Model):
