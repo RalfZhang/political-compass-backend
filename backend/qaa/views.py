@@ -38,7 +38,7 @@ def questions(request):
 def question(request, question_id):
   id = int(question_id)
   question = Question.objects.get(id=id)
-  return HttpResponse(question.__str__())
+  return json.dumps(question.toDict())
 
 def statsQuestionDistribution(request):
   id=int(123)
