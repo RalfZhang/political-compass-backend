@@ -13,10 +13,10 @@ class Choice(models.Model):
   order_id = models.IntegerField()
   def toDict(self):
     return {
-      content: self.content,
-      value: self.value,
-      group_id: self.group_id,
-      order_id: self.order_id
+      'content': self.content,
+      'value': self.value,
+      'group_id': self.group_id,
+      'order_id': self.order_id
     }
 
 class Question(models.Model):
@@ -34,19 +34,19 @@ class Question(models.Model):
     else: 
       return self.content
   def toDict(self):
-    choices = Choice.objects.filter(id = self.choice_group).orderBy(order_id)
+    choices = Choice.objects.filter(id = self.choice_group).order_by('order_id')
     choicesList = []
     for item in choices:
       choicesList.append(item.toDict())
     return {
-      content: self.content,
-      order_id: self.order_id,
-      question_type: self.question_type,
-      addtion: self.addtion,
-      q_id: self.q_id,
-      rev: self.rev,
-      short: self.short,
-      choice_group: choicesList
+      'content': self.content,
+      'order_id': self.order_id,
+      'question_type': self.question_type,
+      'addtion': self.addtion,
+      'q_id': self.q_id,
+      'rev': self.rev,
+      'short': self.short,
+      'choice_group': choicesList
     }
 
 class Answer(models.Model):
