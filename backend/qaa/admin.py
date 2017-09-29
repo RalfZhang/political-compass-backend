@@ -4,7 +4,7 @@ from django.contrib import admin
 from .models import Question, Answer, Choice
 
 class QuestionAdmin(admin.ModelAdmin):
-  list_display = ('q_id', 'short', 'content')
+  list_display = ('content', 'q_id', 'short')
 
 class ChoiceAdmin(admin.ModelAdmin):
   list_display = ('id', 'content', 'order_id' ,'group_id',)
