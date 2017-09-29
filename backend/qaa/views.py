@@ -26,15 +26,10 @@ def index(request):
     return HttpResponse("Hello, world. You're at the polls index.")
 
 def questions(request):
-  if question.param.question_id == None:
     questions = toDict(Question.objects.all())
     # output = ', '.join(p.__str__() for p in questions)
     allJson = json.dumps(questions)
     return HttpResponse(questions)
-  else:
-    questions = Question.objects.filter(id = question.param.question_id)
-    output = ', '.join(p.__str__() for p in questions)
-    return HttpResponse(output)
 def question(request, question_id):
   id = int(question_id)
   question = Question.objects.get(id=id)
