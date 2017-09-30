@@ -27,9 +27,9 @@ def index(request):
 
 def questions(request):
     questions = toDict(Question.objects.all())
-    # output = ', '.join(p.__str__() for p in questions)
-    allJson = json.dumps(questions)
-    return HttpResponse(questions)
+    output = (p.toDict() for p in questions)
+    allJson = json.dumps(output)
+    return HttpResponse(allJson)
 def question(request, question_id):
   id = int(question_id)
   question = Question.objects.get(id=id)
