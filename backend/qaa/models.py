@@ -11,6 +11,8 @@ class Choice(models.Model):
   value = models.IntegerField()
   group_id = models.IntegerField()
   order_id = models.IntegerField()
+  def __str__(self):
+    return '%d.%s' % (self.id, self.content)
   def toDict(self):
     return {
       'content': self.content,
@@ -34,7 +36,7 @@ class Question(models.Model):
     else: 
       return self.content
   def toDict(self):
-    choices = Choice.objects.filter(id = self.choice_group).order_by('order_id')
+    choices = Choice.objects.filter(group_id = self.choice_group).order_by('order_id')
     choicesList = []
     for item in choices:
       choicesList.append(item.toDict())
