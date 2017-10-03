@@ -26,9 +26,12 @@ def index(request):
     return HttpResponse("Hello, world. You're at the polls index.")
 
 def questions(request):
-    questions = toDict(Question.objects.all())
-    output = (p.toDict() for p in questions)
-    allJson = json.dumps(output)
+    questions = Question.objects.all()
+    # todo 优化为 lambda exp
+    questionList = []
+    for item in questions:
+      questionList.append(item.toDict())
+    allJson = json.dumps(questionList)
     return HttpResponse(allJson)
 def question(request, question_id):
   id = int(question_id)
