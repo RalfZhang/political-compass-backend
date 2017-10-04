@@ -23,16 +23,16 @@ class AnswerViewSet(viewsets.ModelViewSet):
   http_method_names = ['post']
 
 def index(request):
-    return HttpResponse("Hello, world. You're at the polls index.")
+  return HttpResponse("Hello, world. You're at the polls index.")
 
 def questions(request):
-    questions = Question.objects.all()
-    # todo 优化为 lambda exp
-    questionList = []
-    for item in questions:
-      questionList.append(item.toDict())
-    allJson = json.dumps(questionList)
-    return HttpResponse(allJson)
+  questions = Question.objects.all().order_by('order_id')
+  # todo 优化为 lambda exp
+  questionList = []
+  for item in questions:
+    questionList.append(item.toDict())
+  allJson = json.dumps(questionList)
+  return HttpResponse(allJson)
 def question(request, question_id):
   id = int(question_id)
   question = Question.objects.get(id=id)
