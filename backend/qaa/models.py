@@ -25,10 +25,10 @@ class Question(models.Model):
   content = models.CharField(max_length=255)
   order_id = models.IntegerField()
   question_type = models.IntegerField()
-  addtion = models.CharField(max_length=50)
+  addtion = models.CharField(max_length=50, blank=True)
   q_id = models.CharField(max_length=50)
-  rev = models.IntegerField()
-  short = models.CharField(max_length=50)
+  rev = models.IntegerField(blank=True)
+  short = models.CharField(max_length=50, blank=True)
   choice_group = models.IntegerField(null=True, blank=True)
   def __str__(self):
     if self.short:
