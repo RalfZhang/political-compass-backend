@@ -23,7 +23,11 @@ class AnswerViewSet(viewsets.ModelViewSet):
   http_method_names = ['post']
 
 def index(request):
-  return HttpResponse("Hello, world. You're at the polls index.")
+  if request.method == 'GET':
+    return HttpResponse("GEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEET")
+  elif request.method == 'POST':
+    return HttpResponse('POOOOOOOOOOOOOOOOOOOOOOOOOOOOOOST')
+  return HttpResponse('unknown method')
 
 def questions(request):
   questions = Question.objects.all().order_by('order_id')
