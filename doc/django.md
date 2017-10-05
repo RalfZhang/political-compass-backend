@@ -123,6 +123,11 @@ mysite/urls.py
 ```
 
 
+问题：
+postman CSRF错误：
+设定Headers里的 X-CSRFToken 和 Cookie，值可以参考任意网页 get 请求发送数据
+
+
 
 http://python.usyiyi.cn/translate/django_182/intro/tutorial01.html
 
