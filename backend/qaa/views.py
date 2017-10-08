@@ -29,7 +29,8 @@ def index(request):
     return HttpResponse('POOOOOOOOOOOOOOOOOOOOOOOOOOOOOOST')
   return HttpResponse('unknown method')
 
-def questions(request):
+# 获取问题列表
+def getQuestionList(request):
   questions = Question.objects.all().order_by('order_id')
   # todo 优化为 lambda exp
   questionList = []
@@ -37,7 +38,9 @@ def questions(request):
     questionList.append(item.toDict())
   allJson = json.dumps(questionList)
   return HttpResponse(allJson)
-def question(request, question_id):
+
+# 获取单个问题
+def getQuestionById(request, question_id):
   id = int(question_id)
   question = Question.objects.get(id=id)
   resJson = json.dumps(question.toDict())
