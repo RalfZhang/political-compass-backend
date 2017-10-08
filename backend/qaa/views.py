@@ -46,6 +46,10 @@ def getQuestionById(request, question_id):
   resJson = json.dumps(question.toDict())
   return HttpResponse(resJson)
 
+# 提交答案
+def postAnswer(request):
+  return HttpResponse('test')
+
 def statsQuestionDistribution(request):
   id=int(123)
   if id:
