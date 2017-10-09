@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, Http404
 from rest_framework import viewsets
 import json
 
@@ -48,6 +48,10 @@ def getQuestionById(request, question_id):
 
 # 提交答案
 def postAnswer(request):
+  # 非 post 即返回
+  if request.method != 'POST':
+    return Http404('')
+  # request.params
   return HttpResponse('test')
 
 def statsQuestionDistribution(request):
