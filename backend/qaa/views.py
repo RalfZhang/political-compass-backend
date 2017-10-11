@@ -57,7 +57,7 @@ def postAnswer(request):
   return HttpResponse('ok')
 
 def statsQuestionDistribution(request):
-  id=int(123)
+  id=int(request.GET['id'])
   if id:
     question = Question.objects.get(id=id)
     q_id = question.q_id
